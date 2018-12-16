@@ -1,0 +1,30 @@
+
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Profile | {{ block.super }}{% endblock %}
+
+
+{% block body %}
+<div class="row">
+<div class="col-md-4 col-sm-4 text-center">
+    <img class="img-circle img-responsive" src="{{profile.image.url}}" alt="profile image" >
+    <a class="btn btn-warning" href="{% url 'accounts:edit_profile_pic' %}">Change Profile Pic</a>
+</div>
+<div class="col-md-6 col-sm-6">
+    <h1>Your Profile </h1>
+    <p><span>First Name:</span> {{ profile.first_name }}</p>
+    <p><span>Last Name:</span> {{ profile.last_name }}</p>
+    <p><span>Email:</span> {{ profile.email }}</p>
+    <p><span>Number:</span> {{ profile.number }}</p>
+    <p><span>Designation:</span> {{ profile.designation }}</p>
+    <p><span>Qualification:</span> {{ profile.qualification }}</p>
+    <p><span>Department:</span> {{ profile.department }}</p>
+
+</div>
+<div class="col-md-2 col-sm-2">
+        <a class="btn btn-warning" href="{% url 'accounts:edit_profile' %}">Edit Profile</a>
+        <a class="btn btn-warning" href="{% url 'accounts:change_password' %}">Change Password</a>
+</div>
+</div>
+{% endblock %}

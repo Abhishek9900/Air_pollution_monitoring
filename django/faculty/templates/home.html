@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+{% block title %}Welcome | {{ block.super }}{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4 col-sm-4">
+        {% if user.is_authenticated %}
+            {% if has_profile == True %}
+                <a class="btn btn-info" href="{% url 'accounts:profile' %}">View Profile</a>
+                <a class="btn btn-info" href="{% url 'graph:monitor' %}">Check Node Status</a>
+            {% else %}
+                <a class="btn btn-info" href="{% url 'accounts:create_profile' %}">Create Profile</a>
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <h1>Welcome!</h1>
+        <p>Air pollution monitoring system-</p>
+    </div>
+</div>
+{% endblock %}

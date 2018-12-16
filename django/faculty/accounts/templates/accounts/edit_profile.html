@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Edit Profile | {{ block.super }}{% endblock %}
+
+{% block body %}
+<div class="row">
+<div class='col-md-4 col-sm-4'>
+<img class="img-circle img-responsive" src="{{profile.image.url}}" alt="profile image" >
+</div>
+<div class="col-md-8 col-sm-8">
+<h2> Update your profile </h2>
+<form method="POST" class="dropzone" action='' enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p}}
+      <input type="submit" class="btn btn-success" value="Update">
+</form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+{% block title %}Sign In | {{ super }}{% endblock %}
+{% block body %}
+    <div class="container">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">Login here</h3>
+      </div>
+      <div class="panel-body">
+        <form class="" action="" method="POST">
+          {% load bootstrap %}
+          {{ form|bootstrap}}
+          {%csrf_token%}
+          <input type="submit" name="submit" value="submit">
+        </form>
+        </div>
+
+      </div>
+    </div>
+{% endblock %}
